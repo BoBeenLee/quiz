@@ -1,1 +1,1 @@
-export * from './components/quiz-form/quiz-form';
+export * from './components/quiz/quiz-container';

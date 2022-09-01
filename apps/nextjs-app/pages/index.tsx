@@ -1,8 +1,14 @@
+import { Button } from '@mui/material';
 import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 import Layout from '../components/layout';
 
 export function Index() {
   const router = useRouter();
+
+  const navigateToQuiz = useCallback(() => {
+    router.push('/quiz');
+  }, [router]);
 
   return (
     <Layout>
@@ -10,7 +16,7 @@ export function Index() {
         <div className="container">
           <div id="welcome">
             <span>Quiz</span>
-            <button>퀴즈 풀기</button>
+            <Button onClick={navigateToQuiz}>퀴즈 풀기</Button>
           </div>
         </div>
       </div>
