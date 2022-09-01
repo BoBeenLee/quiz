@@ -1,0 +1,85 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nextjs-app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/nextjs-app",
+        "outputPath": "dist/apps/nextjs-app"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "nextjs-app:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "nextjs-app:build:production",
+          "dev": false
+        }
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx run nextjs-app:build:production",
+          "docker build -f ./apps/nextjs-app/Dockerfile . -t nx-code-sharing-nextjs-app"
+        ],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "nextjs-app:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nextjs-app"],
+      "options": {
+        "jestConfig": "apps/nextjs-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nextjs-app/**/*.{ts,tsx,js,jsx}"]
+      },
+      "configurations": {
+        "fix": {
+          "fix": true
+        }
+      }
+    },
+    "release": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/nextjs-app && auto-changelog -p"
+          },
+          {
+            "command": "cd apps/nextjs-app && release-it --ci"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

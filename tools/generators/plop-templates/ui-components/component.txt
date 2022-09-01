@@ -1,0 +1,15 @@
+import { StyleSheet, Text } from 'react-native';
+
+const styles = StyleSheet.create({
+  -- PLOP COMPONENT NAME HERE --: {
+    color: 'pink',
+  },
+});
+
+export interface -- PLOP COMPONENT NAME HERE --Props {}
+
+export function -- PLOP COMPONENT NAME HERE --(props: -- PLOP COMPONENT NAME HERE --Props) {
+  return <Text style={styles.-- PLOP COMPONENT NAME HERE --}>hello world</Text>;
+}
+
+export default -- PLOP COMPONENT NAME HERE --;
