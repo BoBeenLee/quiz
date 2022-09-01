@@ -1,16 +1,18 @@
-import { QuizItem } from '../../apis/quiz';
+import { useCallback, useEffect, useState } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import { useCallback, useState } from 'react';
+import Button from '@mui/material/Button';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { QuizItem } from '../../apis/quiz';
 
 export interface QuizFormProps {
   data: QuizItem;
   onAnswer: (id: string, answer: string) => void;
+  onNext: () => void;
 }
 
 const Label = styled.div<{ isCorrect: boolean; isIncorrect: boolean }>`
@@ -29,10 +31,14 @@ const Label = styled.div<{ isCorrect: boolean; isIncorrect: boolean }>`
 `;
 
 export function QuizForm(props: QuizFormProps) {
-  const { data, onAnswer } = props;
+  const { data, onAnswer, onNext } = props;
   const { question, correctAnswer, incorrectAnswers } = data;
   const answers = [correctAnswer, ...incorrectAnswers];
   const [value, setValue] = useState<string | null>(null);
+
+  useEffect(() => {
+    setValue(null);
+  }, [data]);
 
   const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
@@ -47,39 +53,46 @@ export function QuizForm(props: QuizFormProps) {
   );
 
   return (
-    <FormControl>
-      <FormLabel id="quiz-group-label">{`${question}`}</FormLabel>
-      <RadioGroup
-        aria-labelledby="quiz-group-label"
-        name="quiz-group"
-        value={value}
-        onChange={onChangeValue}
-      >
-        {answers.map((answer) => {
-          const isCorrect = correctAnswer === answer && value === answer;
-          const isIncorrect = correctAnswer !== answer && value === answer;
+    <div>
+      <FormControl>
+        <FormLabel id="quiz-group-label">{`${question}`}</FormLabel>
+        <RadioGroup
+          aria-labelledby="quiz-group-label"
+          name="quiz-group"
+          value={value}
+          onChange={onChangeValue}
+        >
+          {answers.map((answer) => {
+            const isCorrect = correctAnswer === answer && value === answer;
+            const isIncorrect = correctAnswer !== answer && value === answer;
 
-          return (
-            <FormControlLabel
-              key={answer}
-              value={answer}
-              control={
-                <Radio
-                  {...(isCorrect ? { color: 'success' } : {})}
-                  {...(isIncorrect ? { color: 'error' } : {})}
-                />
-              }
-              label={
-                <Label isCorrect={isCorrect} isIncorrect={isIncorrect}>
-                  {answer}
-                </Label>
-              }
-              onClick={onQuizAnswer(answer)}
-            />
-          );
-        })}
-      </RadioGroup>
-    </FormControl>
+            return (
+              <FormControlLabel
+                key={answer}
+                value={answer}
+                control={
+                  <Radio
+                    {...(isCorrect ? { color: 'success' } : {})}
+                    {...(isIncorrect ? { color: 'error' } : {})}
+                  />
+                }
+                label={
+                  <Label isCorrect={isCorrect} isIncorrect={isIncorrect}>
+                    {answer}
+                  </Label>
+                }
+                onClick={onQuizAnswer(answer)}
+              />
+            );
+          })}
+        </RadioGroup>
+      </FormControl>
+      <div>
+        <Button variant="contained" onClick={onNext} disabled={value === null}>
+          다음
+        </Button>
+      </div>
+    </div>
   );
 }
 
