@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { MOCK_QUIZ_ITEMS } from '../../__mocks__/quiz';
 import { Quiz, QuizProps } from './quiz';
+import { QuizContainer } from './quiz-container';
 
 export default {
   component: Quiz,
@@ -14,3 +15,10 @@ export const Primary = Template.bind({});
 Primary.args = {
   quizItems: MOCK_QUIZ_ITEMS,
 };
+
+const TemplateContainer: Story<QuizProps> = (args) => (
+  <QuizContainer {...args} />
+);
+
+export const PrimaryContainer = TemplateContainer.bind({});
+PrimaryContainer.args = {};

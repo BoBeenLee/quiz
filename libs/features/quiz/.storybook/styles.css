@@ -1,0 +1,74 @@
+:root {
+  --charcoal-grey: #464052;
+  --black: #000;
+  --cool-grey: #a4a6b0;
+  --battleship-grey: #74747e;
+  --pale-lilac: #e6e6eb;
+  --black-10: rgba(0, 0, 0, 0.1);
+  --pale-grey: #f9f9fb;
+  --charcoal-grey-two: #363a42;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  line-height: 1.5;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+html,
+body {
+  font-size: 16px;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root,
+body {
+  background-color: #eee;
+  padding: 2rem;
+}
+
+*,
+html,
+body {
+  outline: none;
+  box-sizing: border-box;
+}
+html,
+body,
+div.tl-edges,
+div.tl-wrapper {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+body,
+div[role='group'] {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Remove Safari input shadow on mobile */
+input[type='text'],
+input[type='email'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

@@ -3,11 +3,12 @@ import { QuizItem } from '../../apis/quiz';
 import QuizForm from '../quiz-form/quiz-form';
 
 export interface QuizProps {
+  className?: string;
   quizItems: QuizItem[];
 }
 
 export function Quiz(props: QuizProps) {
-  const { quizItems } = props;
+  const { className, quizItems } = props;
   const [quizIndex, setQuizIndex] = useState(0);
 
   const onAnswer = useCallback((answer: string) => {
@@ -20,7 +21,7 @@ export function Quiz(props: QuizProps) {
   }, [quizIndex]);
 
   return (
-    <div>
+    <div className={className}>
       <QuizForm
         data={quizItems[quizIndex]}
         onAnswer={onAnswer}
