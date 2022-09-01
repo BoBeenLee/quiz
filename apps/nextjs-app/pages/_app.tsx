@@ -1,16 +1,27 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '../libs/query-client';
+import '../styles/styles.css';
+
+interface PageProps {
+  dehydratedState: unknown;
+}
 
 function CustomApp({ Component, pageProps }: AppProps) {
+  const { dehydratedState } = pageProps as PageProps;
   return (
     <>
       <Head>
         <title>Welcome to quiz!</title>
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={dehydratedState}>
+          <main className="app">
+            <Component {...pageProps} />
+          </main>
+        </Hydrate>
+      </QueryClientProvider>
     </>
   );
 }
