@@ -15,21 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@quiz/features-todo": [
-        "libs/features/todo/src/index.ts"
-      ],
-      "@quiz/images": ["libs/images/src/index.ts"],
-      "@quiz/sdk": ["libs/sdk/src/index.ts"],
-      "@quiz/shared-apis": ["libs/shared/apis/src/index.ts"],
-      "@quiz/shared-hooks": ["libs/shared/hooks/src/index.ts"],
-      "@quiz/shared-libs": ["libs/shared/libs/src/index.ts"],
-      "@quiz/shared-stores": [
-        "libs/shared/stores/src/index.ts"
-      ],
-      "@quiz/shared-ui-components": [
-        "libs/shared/ui-components/src/index.tsx"
-      ],
-      "@quiz/shared-utils": ["libs/shared/utils/src/index.ts"]
+      "@quiz/features/quiz": ["libs/features/quiz/src/index.ts"]
     }
   },
   "files": ["./types/global.d.ts"],
