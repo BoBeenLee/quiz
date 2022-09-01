@@ -15,6 +15,7 @@ export interface Result {
 }
 
 export interface QuizItem {
+  id: string;
   category: string;
   type: string;
   difficulty: string;
@@ -28,9 +29,10 @@ export const getQuiz = async (): Promise<QuizItem[]> => {
     `https://opentdb.com/api.php?amount=10&type=multiple`
   );
   const responseData = response.data;
-  return responseData.results?.map((item) => {
+  return responseData.results?.map((item, index) => {
     return {
       ...item,
+      id: `${index}`,
       correctAnswer: item.correct_answer,
       incorrectAnswers: item.incorrect_answers,
     };
