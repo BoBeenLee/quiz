@@ -1,0 +1,52 @@
+:root {
+  --charcoal-grey: #464052;
+  --black: #000;
+  --cool-grey: #a4a6b0;
+  --battleship-grey: #74747e;
+  --pale-lilac: #e6e6eb;
+  --black-10: rgba(0, 0, 0, 0.1);
+  --pale-grey: #f9f9fb;
+  --charcoal-grey-two: #363a42;
+}
+
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: AppleSDGothicNeo, Helvetica, sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+html,
+body {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Remove Safari input shadow on mobile */
+input[type='text'],
+input[type='email'] {
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
