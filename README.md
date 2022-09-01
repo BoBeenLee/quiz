@@ -29,22 +29,12 @@
     root
     ├── apps
     ├──── nextjs-app       # nextjs app
-    ├──── rn-app           # react native app
-    ├──── standalone-app   # nextjs standalone app
     ├── libs
-    ├──── sdk              # sdk
     ├──── features         # all of the code for a feature and putting it in one single place (ex) todo)
-    ├─────── todo
+    ├─────── quiz
     ├────────── components
     ├────────── interfaces
     ├────────── stores
-    ├──── shared
-    ├─────── apis          # initalize api setup, add api middleware
-    ├─────── hooks         # shared hooks (ex) timer, debounce...)
-    ├─────── libs          # primitive libs ex) logging, storage, analytics
-    ├─────── stores        # shared state management (ex) Toast, Notification... )
-    ├─────── ui-components # shared ui components, styles (ex) Button, Text... )
-    ├─────── utils         # shared utils (ex) string, datetime, object, uri ...)
     └── README.md
 
 ## ⚡️ Getting Started

@@ -14,9 +14,25 @@ export interface Result {
   incorrect_answers: string[];
 }
 
-export const getQuiz = async () => {
+export interface QuizItem {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correctAnswer: string;
+  incorrectAnswers: string[];
+}
+
+export const getQuiz = async (): Promise<QuizItem[]> => {
   const response = await axios.get<Root>(
     `https://opentdb.com/api.php?amount=10&type=multiple`
   );
-  return response.data;
+  const responseData = response.data;
+  return responseData.results?.map((item) => {
+    return {
+      ...item,
+      correctAnswer: item.correct_answer,
+      incorrectAnswers: item.incorrect_answers,
+    };
+  });
 };

@@ -1,17 +1,11 @@
-import { StyleSheet, Text } from 'react-native';
-
-const styles = StyleSheet.create({
-  QuizForm: {
-    color: 'pink',
-  },
-});
+import { QuizItem } from '../../apis/quiz';
 
 export interface QuizFormProps {
-  
+  data: QuizItem;
 }
 
 export function QuizForm(props: QuizFormProps) {
-  return <Text style={styles.QuizForm}>hello world</Text>;
+  return <div>hello world</div>;
 }
 
 export default QuizForm;
