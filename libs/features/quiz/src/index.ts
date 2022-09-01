@@ -1,1 +1,1 @@
-export * from './lib/features-quiz';
+export * from './lib';

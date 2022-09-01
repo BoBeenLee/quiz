@@ -22,7 +22,7 @@ export function uiComponentsPlop(plop) {
         name: 'featuresFolder',
         message: 'Features Folder: ',
         choices: [
-          { name: 'todo', value: 'todo' },
+          { name: 'quiz', value: 'quiz' },
         ],
         when(answers) {
           return answers.location === 'features';

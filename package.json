@@ -25,16 +25,7 @@
     "nextjs-app:start:qa": "env-cmd -f ./apps/nextjs-app/.qa.env nx run nextjs-app:serve",
     "nextjs-app:release": "nx run nextjs-app:release",
     "nextjs-app:deploy:production": "nx run nextjs-app:deploy:production",
-    "nextjs-app:analyze": "env-cmd -f ./apps/nextjs-app/.analyze.env nx run nextjs-app:serve",
-    "standalone-nextjs-app:start": "nx run standalone-nextjs-app:serve",
-    "standalone-nextjs-app:release": "nx run standalone-nextjs-app:release",
-    "standalone-nextjs-app:deploy:production": "nx run standalone-nextjs-app:deploy:production",
-    "rn-app:start": "nx run rn-app:start",
-    "rn-app:run-ios": "cp ./apps/rn-app/.dev.env ./apps/rn-app/.env && nx run rn-app:run-ios",
-    "rn-app:run-ios:qa": "cp ./apps/rn-app/.qa.env ./apps/rn-app/.env && nx run rn-app:run-ios",
-    "rn-app:release": "nx run rn-app:release",
-    "sdk:build": "nx run sdk:build",
-    "sdk:publish": "nx run sdk:publish"
+    "nextjs-app:analyze": "env-cmd -f ./apps/nextjs-app/.analyze.env nx run nextjs-app:serve"
   },
   "dependencies": {
     "@nrwl/next": "14.4.2",
