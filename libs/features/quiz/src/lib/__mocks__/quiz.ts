@@ -2,6 +2,7 @@ import { QuizItem } from '../apis/quiz';
 
 export const MOCK_QUIZ_ITEMS: QuizItem[] = [
   {
+    id: '1',
     category: 'Geography',
     type: 'multiple',
     difficulty: 'easy',
@@ -11,6 +12,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Combball', 'Handball', 'Touchdown'],
   },
   {
+    id: '2',
     category: 'Entertainment: Cartoon & Animations',
     type: 'multiple',
     difficulty: 'medium',
@@ -20,6 +22,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Minnesota', 'Washington', 'California'],
   },
   {
+    id: '3',
     category: 'General Knowledge',
     type: 'multiple',
     difficulty: 'medium',
@@ -29,6 +32,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Biryani', 'Pani puri', 'Tiki masala'],
   },
   {
+    id: '4',
     category: 'Entertainment: Japanese Anime & Manga',
     type: 'multiple',
     difficulty: 'easy',
@@ -38,6 +42,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Murder Diary', 'Escape Diary ', 'Justice Diary '],
   },
   {
+    id: '5',
     category: 'Entertainment: Books',
     type: 'multiple',
     difficulty: 'hard',
@@ -47,6 +52,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Hamlet', 'The Great Gatsby', 'Peter Pan'],
   },
   {
+    id: '6',
     category: 'Geography',
     type: 'multiple',
     difficulty: 'medium',
@@ -55,6 +61,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['1,888 ft', '1,225 ft', '1,960 ft'],
   },
   {
+    id: '7',
     category: 'History',
     type: 'multiple',
     difficulty: 'hard',
@@ -63,6 +70,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['902 BCE', '524 BCE', '697 BCE'],
   },
   {
+    id: '8',
     category: 'Entertainment: Television',
     type: 'multiple',
     difficulty: 'hard',
@@ -71,6 +79,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Racht', 'Gagh', 'Bloodwine'],
   },
   {
+    id: '9',
     category: 'Entertainment: Board Games',
     type: 'multiple',
     difficulty: 'hard',
@@ -80,6 +89,7 @@ export const MOCK_QUIZ_ITEMS: QuizItem[] = [
     incorrectAnswers: ['Lotleth Troll', 'Albino Troll', 'Harvester Troll'],
   },
   {
+    id: '10',
     category: 'Entertainment: Video Games',
     type: 'multiple',
     difficulty: 'easy',

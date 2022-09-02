@@ -5,7 +5,7 @@ import QuizForm from './quiz-form';
 describe('QuizForm', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <QuizForm />
+      <QuizForm data={MOCK_QU} />
     );
     expect(baseElement).toBeTruthy();
   });
