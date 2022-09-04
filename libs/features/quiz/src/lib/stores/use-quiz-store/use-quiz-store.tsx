@@ -79,7 +79,7 @@ export const quizSummary = (state: QuizStoreProps) => {
   ).length;
   const incorrectCount = totalQuizCount - correctCount;
   const durationTime =
-    (state.quizItems[state.quizItems.length - 1].answerAt ??
+    (state.quizItems[state.quizItems.length - 1]?.answerAt ??
       state.quizItemsAt ??
       0) - (state.quizItemsAt ?? 0);
 
