@@ -10,6 +10,7 @@ interface QuizStoreProps {
   quizItems: QuizWithAnswer[];
   reset: () => void;
   retry: () => void;
+  setAnswer: (id: string, answer: string) => void;
   hydrate: (quizItems: QuizWithAnswer[]) => void;
 }
 
@@ -31,6 +32,17 @@ export const useQuizStore = create<QuizStoreProps>((set, __) => ({
             answer: undefined,
           };
         });
+      })
+    );
+  },
+  setAnswer: (id: string, answer: string) => {
+    set(
+      produce<QuizStoreProps>((state) => {
+        const selected = state.quizItems.find((item) => item.id === id);
+        if (!selected) {
+          return;
+        }
+        selected.answer = answer;
       })
     );
   },

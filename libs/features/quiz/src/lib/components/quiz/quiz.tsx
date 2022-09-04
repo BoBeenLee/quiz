@@ -7,16 +7,13 @@ import QuizForm from '../quiz-form/quiz-form';
 export interface QuizProps {
   className?: string;
   quizItems: QuizItem[];
+  onAnswer: (id: string, answer: string) => void;
 }
 
 export function Quiz(props: QuizProps) {
-  const { className, quizItems } = props;
+  const { className, quizItems, onAnswer } = props;
   const { nextStepIndex, isLast, onNextStep } = useNextStep(quizItems);
   const router = useRouter();
-
-  const onAnswer = useCallback((answer: string) => {
-    // TODO
-  }, []);
 
   const onNext = useCallback(() => {
     if (isLast) {
