@@ -9,6 +9,7 @@ describe('QuizSummary', () => {
         totalQuizCount={10}
         correctCount={6}
         incorrectCount={4}
+        durationTime={1000}
         onHome={() => {
           // SOMETHING
         }}

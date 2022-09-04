@@ -69,10 +69,15 @@ export const quizSummary = (state: QuizStoreProps) => {
     (item) => item.answer === item.correctAnswer
   ).length;
   const incorrectCount = totalQuizCount - correctCount;
+  const durationTime =
+    (state.quizItems[state.quizItems.length].answerAt ??
+      state.quizItemsAt ??
+      0) - (state.quizItemsAt ?? 0);
 
   return {
     totalQuizCount,
     correctCount,
     incorrectCount,
+    durationTime,
   };
 };

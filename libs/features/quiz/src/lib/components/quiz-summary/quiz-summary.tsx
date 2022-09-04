@@ -5,18 +5,27 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Divider, List, ListItem, ListItemText } from '@mui/material';
 import styles from './quiz-summary.module.css';
+import { getMinutesAndSeconds } from "../../utils/datetime/datetime";
 
 export interface QuizSummaryProps {
   className?: string;
   totalQuizCount: number;
   correctCount: number;
   incorrectCount: number;
+  durationTime: number;
   onHome: () => void;
   onRetry: () => void;
 }
 
 export function QuizSummary(props: QuizSummaryProps) {
-  const { className, totalQuizCount, correctCount, incorrectCount } = props;
+  const {
+    className,
+    totalQuizCount,
+    correctCount,
+    incorrectCount,
+    durationTime,
+  } = props;
+  const { minutes: durationMinutes, seconds: durationSeconds } = getMinutesAndSeconds(durationTime);
   return (
     <Card className={className} sx={{ maxWidth: 345 }}>
       <CardContent>
@@ -31,6 +40,9 @@ export function QuizSummary(props: QuizSummaryProps) {
           <Divider />
           <ListItem>
             <ListItemText primary="오답수" secondary={`${incorrectCount}`} />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="소요시간" secondary={`${durationMinutes}분 ${durationSeconds}초F`} />
           </ListItem>
         </List>
       </CardContent>
