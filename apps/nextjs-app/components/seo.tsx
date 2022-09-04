@@ -2,9 +2,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMeta = {
-  title: 'quiz title',
-  siteName: 'quiz sitename',
-  description: 'quiz description',
+  title: 'Quiz',
+  siteName: 'quiz',
+  description: 'quiz',
   url: 'http://example.com/',
   type: 'website',
   robots: 'follow, index',
