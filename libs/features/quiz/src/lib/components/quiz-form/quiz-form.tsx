@@ -96,6 +96,7 @@ export function QuizForm(props: QuizFormProps) {
         </RadioGroup>
       </FormControl>
       <Button
+        role="next-button"
         className={styles['next-button']}
         variant="contained"
         onClick={onNext}
