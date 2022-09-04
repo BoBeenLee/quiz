@@ -11,6 +11,7 @@ import { QuizItem } from '../../apis/quiz';
 import styles from './quiz-form.module.css';
 
 export interface QuizFormProps {
+  isLast?: boolean;
   data: QuizItem;
   onAnswer: (id: string, answer: string) => void;
   onNext: () => void;
@@ -32,7 +33,7 @@ const Label = styled.div<{ isCorrect: boolean; isIncorrect: boolean }>`
 `;
 
 export function QuizForm(props: QuizFormProps) {
-  const { data, onAnswer, onNext } = props;
+  const { isLast, data, onAnswer, onNext } = props;
   const { question, correctAnswer, incorrectAnswers } = data;
   const answers = [correctAnswer, ...incorrectAnswers];
   const [value, setValue] = useState<string | null>(null);
@@ -100,7 +101,7 @@ export function QuizForm(props: QuizFormProps) {
         onClick={onNext}
         disabled={value === null}
       >
-        다음
+        {isLast ? "결과보기" : "다음"}
       </Button>
     </div>
   );
