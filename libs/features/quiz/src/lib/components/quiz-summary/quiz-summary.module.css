@@ -1,3 +1,7 @@
+.chart {
+  margin: auto;
+}
+
 .actions {
   display: flex;
   flex-direction: row;

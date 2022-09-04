@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { getQuiz } from '../../apis/quiz';
-import { useQuizStore } from '../../stores/use-chat-room-message-store/use-quiz-store';
+import { useQuizStore } from '../../stores/use-quiz-store/use-quiz-store';
 import Quiz from './quiz';
 
 export interface QuizContainerProps {

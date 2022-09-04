@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import {
   quizSummary,
   useQuizStore,
-} from '../../stores/use-chat-room-message-store/use-quiz-store';
+} from '../../stores/use-quiz-store/use-quiz-store';
 import QuizSummary from './quiz-summary';
 
 export interface QuizSummaryContainerProps {
