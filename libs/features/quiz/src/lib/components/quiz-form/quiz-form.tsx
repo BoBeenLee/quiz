@@ -40,7 +40,7 @@ export function QuizForm(props: QuizFormProps) {
 
   useEffect(() => {
     setValue(null);
-  }, [data]);
+  }, [data.id]);
 
   const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (value !== null) {
