@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.next-button {
+  margin-top: 1rem;
+}

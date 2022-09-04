@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { QuizItem } from '../../apis/quiz';
+import styles from './quiz-form.module.css';
 
 export interface QuizFormProps {
   data: QuizItem;
@@ -41,6 +42,9 @@ export function QuizForm(props: QuizFormProps) {
   }, [data]);
 
   const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (value !== null) {
+      return;
+    }
     setValue((event.target as HTMLInputElement).value);
   };
 
@@ -53,9 +57,12 @@ export function QuizForm(props: QuizFormProps) {
   );
 
   return (
-    <div>
+    <div className={styles['main']}>
       <FormControl>
-        <FormLabel id="quiz-group-label">{`${question}`}</FormLabel>
+        <FormLabel
+          id="quiz-group-label"
+          color="info"
+        >{`${question}`}</FormLabel>
         <RadioGroup
           aria-labelledby="quiz-group-label"
           name="quiz-group"
@@ -87,11 +94,14 @@ export function QuizForm(props: QuizFormProps) {
           })}
         </RadioGroup>
       </FormControl>
-      <div>
-        <Button variant="contained" onClick={onNext} disabled={value === null}>
-          다음
-        </Button>
-      </div>
+      <Button
+        className={styles['next-button']}
+        variant="contained"
+        onClick={onNext}
+        disabled={value === null}
+      >
+        다음
+      </Button>
     </div>
   );
 }
