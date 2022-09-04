@@ -1,7 +1,7 @@
 import produce from 'immer';
 import create from 'zustand';
 import { QuizItem } from '../../apis/quiz';
-import { todayTime } from '../../utils/datetime';
+import { todayTime } from '../../utils/datetime/datetime';
 
 interface QuizWithAnswer extends QuizItem {
   answer?: string;
