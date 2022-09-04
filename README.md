@@ -90,6 +90,5 @@ npm run dev
 
 ## Deployment
 
-### Dev Deployment
-
-- Vercel:
+- Vercel: https://quiz-bobeenlee.vercel.app/
+- Storybook: https://bobeenlee.github.io/quiz/features-quiz/
