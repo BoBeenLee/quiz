@@ -3,7 +3,13 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import { Divider, List, ListItem, ListItemText, Typography } from '@mui/material';
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import styles from './quiz-summary.module.css';
 import { getMinutesAndSeconds } from '../../utils/datetime/datetime';
 import QuizSummaryChart from '../quiz-summary-chart/quiz-summary-chart';
@@ -25,6 +31,8 @@ export function QuizSummary(props: QuizSummaryProps) {
     correctCount,
     incorrectCount,
     durationTime,
+    onHome,
+    onRetry,
   } = props;
   const { minutes: durationMinutes, seconds: durationSeconds } =
     getMinutesAndSeconds(durationTime);
@@ -34,7 +42,7 @@ export function QuizSummary(props: QuizSummaryProps) {
         <List component="ul">
           <ListItem>
             <Typography
-              className={styles["title"]}
+              className={styles['title']}
               variant="h3"
               gutterBottom={true}
             >
@@ -69,8 +77,10 @@ export function QuizSummary(props: QuizSummaryProps) {
         </List>
       </CardContent>
       <CardActions className={styles['actions']}>
-        <Button variant="contained">홈</Button>
-        <Button>다시 풀기</Button>
+        <Button variant="contained" onClick={onHome}>
+          홈
+        </Button>
+        <Button onClick={onRetry}>다시 풀기</Button>
       </CardActions>
     </Card>
   );
