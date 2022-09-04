@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import { Divider, List, ListItem, ListItemText } from '@mui/material';
+import { Divider, List, ListItem, ListItemText, Typography } from '@mui/material';
 import styles from './quiz-summary.module.css';
 import { getMinutesAndSeconds } from '../../utils/datetime/datetime';
 import QuizSummaryChart from '../quiz-summary-chart/quiz-summary-chart';
@@ -32,6 +32,15 @@ export function QuizSummary(props: QuizSummaryProps) {
     <Card className={className} sx={{ maxWidth: 345 }}>
       <CardContent>
         <List component="ul">
+          <ListItem>
+            <Typography
+              className={styles["title"]}
+              variant="h3"
+              gutterBottom={true}
+            >
+              Quiz
+            </Typography>
+          </ListItem>
           <ListItem>
             <QuizSummaryChart
               className={styles['chart']}
