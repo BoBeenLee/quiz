@@ -17,9 +17,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={dehydratedState}>
-          <main className="app">
-            <Component {...pageProps} />
-          </main>
+          <Component {...pageProps} />
         </Hydrate>
       </QueryClientProvider>
     </>

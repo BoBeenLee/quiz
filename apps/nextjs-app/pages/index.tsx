@@ -1,7 +1,8 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import Layout from '../components/layout';
+import styles from '../styles/index.module.css';
 
 export function Index() {
   const router = useRouter();
@@ -12,14 +13,14 @@ export function Index() {
 
   return (
     <Layout>
-      <div className="wrapper">
-        <div className="container">
-          <div id="welcome">
-            <span>Quiz</span>
-            <Button onClick={navigateToQuiz}>퀴즈 풀기</Button>
-          </div>
-        </div>
-      </div>
+      <main className={styles.main}>
+        <Typography className={styles.title} variant="h2" gutterBottom={true}>
+          Quiz
+        </Typography>
+        <Button variant="contained" onClick={navigateToQuiz}>
+          퀴즈 풀기
+        </Button>
+      </main>
     </Layout>
   );
 }
