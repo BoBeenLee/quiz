@@ -35,6 +35,7 @@
     "@tanstack/react-query": "^4.2.3",
     "axios": "^0.27.2",
     "core-js": "^3.6.5",
+    "date-fns": "^2.29.2",
     "express": "^4.17.3",
     "hoist-non-react-statics": "^3.3.2",
     "immer": "^9.0.12",
@@ -43,6 +44,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.2",
+    "recharts": "^2.1.13",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0",
     "zustand": "^4.1.1"
