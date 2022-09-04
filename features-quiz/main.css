@@ -1,0 +1,32 @@
+.quiz-form_main__2vtGh {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-form_next-button__2NUhk {
+  margin-top: 1rem;
+}
+
+.quiz-summary_title__38_um {
+  margin-bottom: 1rem;
+  margin: auto;
+}
+
+.quiz-summary_chart__2Kjok {
+  margin: auto;
+}
+
+.quiz-summary_actions__1xi2a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-summary_actions__1xi2a button {
+  display: flex;
+  flex: 1;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
