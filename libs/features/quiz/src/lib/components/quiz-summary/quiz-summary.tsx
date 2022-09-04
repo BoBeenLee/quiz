@@ -41,8 +41,9 @@ export function QuizSummary(props: QuizSummaryProps) {
           <ListItem>
             <ListItemText primary="오답수" secondary={`${incorrectCount}`} />
           </ListItem>
+          <Divider />
           <ListItem>
-            <ListItemText primary="소요시간" secondary={`${durationMinutes}분 ${durationSeconds}초F`} />
+            <ListItemText primary="소요시간" secondary={`${durationMinutes}분 ${durationSeconds}초`} />
           </ListItem>
         </List>
       </CardContent>
