@@ -19,51 +19,57 @@ interface QuizStoreProps {
 }
 
 export const useQuizStore = create<QuizStoreProps>()(
-  persist((set, __) => ({
-    quizItems: [],
-    quizItemsAt: null,
-    reset: () => {
-      set(
-        produce<QuizStoreProps>((state) => {
-          state.quizItems = [];
-          state.quizItemsAt = null;
-        })
-      );
-    },
-    retry: () => {
-      set(
-        produce<QuizStoreProps>((state) => {
-          state.quizItems = state.quizItems.map((item) => {
-            return {
-              ...item,
-              answer: undefined,
-            };
-          });
-          state.quizItemsAt = todayTime();
-        })
-      );
-    },
-    setAnswer: (id: string, answer: string) => {
-      set(
-        produce<QuizStoreProps>((state) => {
-          const selected = state.quizItems.find((item) => item.id === id);
-          if (!selected) {
-            return;
-          }
-          selected.answer = answer;
-          selected.answerAt = todayTime();
-        })
-      );
-    },
-    setQuizItems: (quizItems: QuizWithAnswer[]) => {
-      set(
-        produce<QuizStoreProps>((state) => {
-          state.quizItems = quizItems;
-          state.quizItemsAt = todayTime();
-        })
-      );
-    },
-  }))
+  persist(
+    (set, __) => ({
+      quizItems: [],
+      quizItemsAt: null,
+      reset: () => {
+        set(
+          produce<QuizStoreProps>((state) => {
+            state.quizItems = [];
+            state.quizItemsAt = null;
+          })
+        );
+      },
+      retry: () => {
+        set(
+          produce<QuizStoreProps>((state) => {
+            state.quizItems = state.quizItems.map((item) => {
+              return {
+                ...item,
+                answer: undefined,
+              };
+            });
+            state.quizItemsAt = todayTime();
+          })
+        );
+      },
+      setAnswer: (id: string, answer: string) => {
+        set(
+          produce<QuizStoreProps>((state) => {
+            const selected = state.quizItems.find((item) => item.id === id);
+            if (!selected) {
+              return;
+            }
+            selected.answer = answer;
+            selected.answerAt = todayTime();
+          })
+        );
+      },
+      setQuizItems: (quizItems: QuizWithAnswer[]) => {
+        set(
+          produce<QuizStoreProps>((state) => {
+            state.quizItems = quizItems;
+            state.quizItemsAt = todayTime();
+          })
+        );
+      },
+    }),
+    {
+      name: 'quizStore',
+      getStorage: () => localStorage,
+    }
+  )
 );
 
 export const quizSummary = (state: QuizStoreProps) => {
@@ -73,7 +79,7 @@ export const quizSummary = (state: QuizStoreProps) => {
   ).length;
   const incorrectCount = totalQuizCount - correctCount;
   const durationTime =
-    (state.quizItems[state.quizItems.length].answerAt ??
+    (state.quizItems[state.quizItems.length - 1].answerAt ??
       state.quizItemsAt ??
       0) - (state.quizItemsAt ?? 0);
 
