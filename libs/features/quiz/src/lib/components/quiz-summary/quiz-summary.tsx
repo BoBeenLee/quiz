@@ -37,7 +37,7 @@ export function QuizSummary(props: QuizSummaryProps) {
   const { minutes: durationMinutes, seconds: durationSeconds } =
     getMinutesAndSeconds(durationTime);
   return (
-    <Card className={className} sx={{ maxWidth: 345 }}>
+    <Card className={className} sx={{ minWidth: 400 }}>
       <CardContent>
         <List component="ul">
           <ListItem>
