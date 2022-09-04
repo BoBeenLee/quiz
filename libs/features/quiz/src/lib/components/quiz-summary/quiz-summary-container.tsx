@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 import {
   quizSummary,
   useQuizStore,
@@ -10,8 +12,21 @@ export interface QuizSummaryContainerProps {
 
 export function QuizSummaryContainer(props: QuizSummaryContainerProps) {
   const summary = useQuizStore(quizSummary);
+  const { retry } = useQuizStore();
+  const router = useRouter();
 
-  return <QuizSummary {...props} {...summary} />;
+  const onHome = useCallback(() => {
+    router.replace('/');
+  }, [router]);
+
+  const onRetry = useCallback(() => {
+    retry();
+    router.replace('/quiz');
+  }, [retry, router]);
+
+  return (
+    <QuizSummary {...props} {...summary} onHome={onHome} onRetry={onRetry} />
+  );
 }
 
 export default QuizSummaryContainer;

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { QuizSummary, QuizSummaryProps } from './quiz-summary';
 
@@ -10,4 +11,10 @@ export default {
 const Template: Story<QuizSummaryProps> = (args) => <QuizSummary {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  totalQuizCount: 10,
+  correctCount: 6,
+  incorrectCount: 4,
+  onHome: action('onHome'),
+  onRetry: action('onRetry'),
+};

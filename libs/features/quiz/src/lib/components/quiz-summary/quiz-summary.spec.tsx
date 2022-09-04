@@ -5,7 +5,17 @@ import QuizSummary from './quiz-summary';
 describe('QuizSummary', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
-      <QuizSummary />
+      <QuizSummary
+        totalQuizCount={10}
+        correctCount={6}
+        incorrectCount={4}
+        onHome={() => {
+          // SOMETHING
+        }}
+        onRetry={() => {
+          // SOMETHING
+        }}
+      />
     );
     expect(baseElement).toBeTruthy();
   });

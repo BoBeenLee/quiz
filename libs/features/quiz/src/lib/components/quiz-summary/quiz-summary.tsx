@@ -2,36 +2,39 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Divider, List, ListItem, ListItemText } from '@mui/material';
 
 export interface QuizSummaryProps {
   className?: string;
+  totalQuizCount: number;
+  correctCount: number;
+  incorrectCount: number;
+  onHome: () => void;
+  onRetry: () => void;
 }
 
 export function QuizSummary(props: QuizSummaryProps) {
-  const { className } = props;
+  const { className, totalQuizCount, correctCount, incorrectCount } = props;
   return (
     <Card className={className} sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
-      />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
+        <List component="ul">
+          <ListItem>
+            <ListItemText primary="총 퀴즈수" secondary={`${totalQuizCount}`} />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="정답수" secondary={`${correctCount}`} />
+          </ListItem>
+          <Divider />
+          <ListItem>
+            <ListItemText primary="오답수" secondary={`${incorrectCount}`} />
+          </ListItem>
+        </List>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">홈</Button>
+        <Button size="small">다시 풀기</Button>
       </CardActions>
     </Card>
   );
