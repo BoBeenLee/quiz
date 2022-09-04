@@ -22,10 +22,7 @@
     "features-quiz:storybook": "nx run features-quiz:storybook",
     "build-storybook": "nx run-many --target=build-storybook --projects=features-quiz",
     "nextjs-app:start": "nx run nextjs-app:serve",
-    "nextjs-app:start:qa": "env-cmd -f ./apps/nextjs-app/.qa.env nx run nextjs-app:serve",
-    "nextjs-app:release": "nx run nextjs-app:release",
-    "nextjs-app:deploy:production": "nx run nextjs-app:deploy:production",
-    "nextjs-app:analyze": "env-cmd -f ./apps/nextjs-app/.analyze.env nx run nextjs-app:serve"
+    "nextjs-app:build": "nx run nextjs-app:build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
