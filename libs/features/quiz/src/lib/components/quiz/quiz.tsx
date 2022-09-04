@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { QuizItem } from '../../apis/quiz';
 import { useNextStep } from '../../hooks/useNextStep';
@@ -11,6 +12,7 @@ export interface QuizProps {
 export function Quiz(props: QuizProps) {
   const { className, quizItems } = props;
   const { nextStepIndex, isLast, onNextStep } = useNextStep(quizItems);
+  const router = useRouter();
 
   const onAnswer = useCallback((answer: string) => {
     // TODO
@@ -18,10 +20,11 @@ export function Quiz(props: QuizProps) {
 
   const onNext = useCallback(() => {
     if (isLast) {
+      router.push('/result');
       return;
     }
     onNextStep();
-  }, [isLast, onNextStep]);
+  }, [isLast, onNextStep, router]);
 
   return (
     <div className={className}>
