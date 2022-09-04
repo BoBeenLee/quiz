@@ -1,25 +1,30 @@
 import produce from 'immer';
 import create from 'zustand';
 import { QuizItem } from '../../apis/quiz';
+import { todayTime } from '../../utils/datetime';
 
 interface QuizWithAnswer extends QuizItem {
   answer?: string;
+  answerAt?: number;
 }
 
 interface QuizStoreProps {
   quizItems: QuizWithAnswer[];
+  quizItemsAt: number | null;
   reset: () => void;
   retry: () => void;
   setAnswer: (id: string, answer: string) => void;
-  hydrate: (quizItems: QuizWithAnswer[]) => void;
+  setQuizItems: (quizItems: QuizWithAnswer[]) => void;
 }
 
 export const useQuizStore = create<QuizStoreProps>((set, __) => ({
   quizItems: [],
+  quizItemsAt: null,
   reset: () => {
     set(
       produce<QuizStoreProps>((state) => {
         state.quizItems = [];
+        state.quizItemsAt = null;
       })
     );
   },
@@ -32,6 +37,7 @@ export const useQuizStore = create<QuizStoreProps>((set, __) => ({
             answer: undefined,
           };
         });
+        state.quizItemsAt = todayTime();
       })
     );
   },
@@ -43,13 +49,15 @@ export const useQuizStore = create<QuizStoreProps>((set, __) => ({
           return;
         }
         selected.answer = answer;
+        selected.answerAt = todayTime();
       })
     );
   },
-  hydrate: (quizItems: QuizWithAnswer[]) => {
+  setQuizItems: (quizItems: QuizWithAnswer[]) => {
     set(
       produce<QuizStoreProps>((state) => {
         state.quizItems = quizItems;
+        state.quizItemsAt = todayTime();
       })
     );
   },
