@@ -2,6 +2,7 @@ import produce from 'immer';
 import create from 'zustand';
 import { QuizItem } from '../../apis/quiz';
 import { todayTime } from '../../utils/datetime/datetime';
+import { persist } from 'zustand/middleware';
 
 interface QuizWithAnswer extends QuizItem {
   answer?: string;
@@ -17,51 +18,53 @@ interface QuizStoreProps {
   setQuizItems: (quizItems: QuizWithAnswer[]) => void;
 }
 
-export const useQuizStore = create<QuizStoreProps>((set, __) => ({
-  quizItems: [],
-  quizItemsAt: null,
-  reset: () => {
-    set(
-      produce<QuizStoreProps>((state) => {
-        state.quizItems = [];
-        state.quizItemsAt = null;
-      })
-    );
-  },
-  retry: () => {
-    set(
-      produce<QuizStoreProps>((state) => {
-        state.quizItems = state.quizItems.map((item) => {
-          return {
-            ...item,
-            answer: undefined,
-          };
-        });
-        state.quizItemsAt = todayTime();
-      })
-    );
-  },
-  setAnswer: (id: string, answer: string) => {
-    set(
-      produce<QuizStoreProps>((state) => {
-        const selected = state.quizItems.find((item) => item.id === id);
-        if (!selected) {
-          return;
-        }
-        selected.answer = answer;
-        selected.answerAt = todayTime();
-      })
-    );
-  },
-  setQuizItems: (quizItems: QuizWithAnswer[]) => {
-    set(
-      produce<QuizStoreProps>((state) => {
-        state.quizItems = quizItems;
-        state.quizItemsAt = todayTime();
-      })
-    );
-  },
-}));
+export const useQuizStore = create<QuizStoreProps>()(
+  persist((set, __) => ({
+    quizItems: [],
+    quizItemsAt: null,
+    reset: () => {
+      set(
+        produce<QuizStoreProps>((state) => {
+          state.quizItems = [];
+          state.quizItemsAt = null;
+        })
+      );
+    },
+    retry: () => {
+      set(
+        produce<QuizStoreProps>((state) => {
+          state.quizItems = state.quizItems.map((item) => {
+            return {
+              ...item,
+              answer: undefined,
+            };
+          });
+          state.quizItemsAt = todayTime();
+        })
+      );
+    },
+    setAnswer: (id: string, answer: string) => {
+      set(
+        produce<QuizStoreProps>((state) => {
+          const selected = state.quizItems.find((item) => item.id === id);
+          if (!selected) {
+            return;
+          }
+          selected.answer = answer;
+          selected.answerAt = todayTime();
+        })
+      );
+    },
+    setQuizItems: (quizItems: QuizWithAnswer[]) => {
+      set(
+        produce<QuizStoreProps>((state) => {
+          state.quizItems = quizItems;
+          state.quizItemsAt = todayTime();
+        })
+      );
+    },
+  }))
+);
 
 export const quizSummary = (state: QuizStoreProps) => {
   const totalQuizCount = state.quizItems.length;
