@@ -105,7 +105,7 @@ jobs:
         with:
           path: ${{ env.CACHED_BUILD_PATHS }}
           key: ${{ env.BUILD_CACHE_KEY }}
-      - run: npm run test:affected
+      - run: npm run test
 
   storybook-deploy:
     if: ${{ github.ref == 'refs/heads/develop' }}
