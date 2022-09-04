@@ -9,12 +9,17 @@ export interface QuizContainerProps {
 }
 
 export function QuizContainer(props: QuizContainerProps) {
-  const query = useQuery(['quiz'], getQuiz, { suspense: true });
-  const { quizItems, setQuizItems, setAnswer } = useQuizStore();
+  const { quizItems, quizItemsAt, setQuizItems, setAnswer } = useQuizStore();
+  const query = useQuery(['quiz'], getQuiz, {
+    suspense: true,
+    enabled: quizItemsAt === null,
+  });
 
   useEffect(() => {
-    setQuizItems(query.data ?? []);
-  }, [setQuizItems, query.data]);
+    if (quizItemsAt === null) {
+      setQuizItems(query.data ?? []);
+    }
+  }, [setQuizItems, query.data, quizItemsAt]);
 
   return <Quiz {...props} quizItems={quizItems} onAnswer={setAnswer} />;
 }

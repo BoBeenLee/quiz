@@ -1,4 +1,5 @@
 import { Button, Typography } from '@mui/material';
+import { useQuizStore } from '@quiz/features/quiz';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import Layout from '../components/layout';
@@ -6,10 +7,12 @@ import styles from '../styles/index.module.css';
 
 export function Index() {
   const router = useRouter();
-
+  const { reset } = useQuizStore();
+  
   const navigateToQuiz = useCallback(() => {
+    reset();
     router.push('/quiz');
-  }, [router]);
+  }, [reset, router]);
 
   return (
     <Layout>
