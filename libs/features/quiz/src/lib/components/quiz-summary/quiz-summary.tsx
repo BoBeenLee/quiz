@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { Divider, List, ListItem, ListItemText } from '@mui/material';
+import styles from './quiz-summary.module.css';
 
 export interface QuizSummaryProps {
   className?: string;
@@ -23,6 +24,7 @@ export function QuizSummary(props: QuizSummaryProps) {
           <ListItem>
             <ListItemText primary="총 퀴즈수" secondary={`${totalQuizCount}`} />
           </ListItem>
+          <Divider />
           <ListItem>
             <ListItemText primary="정답수" secondary={`${correctCount}`} />
           </ListItem>
@@ -32,9 +34,9 @@ export function QuizSummary(props: QuizSummaryProps) {
           </ListItem>
         </List>
       </CardContent>
-      <CardActions>
-        <Button size="small">홈</Button>
-        <Button size="small">다시 풀기</Button>
+      <CardActions className={styles['actions']}>
+        <Button variant="contained">홈</Button>
+        <Button>다시 풀기</Button>
       </CardActions>
     </Card>
   );
