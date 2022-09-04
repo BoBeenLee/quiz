@@ -15,7 +15,7 @@ export const todayTime = () => {
 };
 
 export const getMinutesAndSeconds = (durationTime: number) => {
-  const totalSeconds = durationTime / 1000;
+  const totalSeconds = Math.floor(durationTime / 1000);
   const minutes = Math.floor(totalSeconds / 60);
   return {
     minutes,
