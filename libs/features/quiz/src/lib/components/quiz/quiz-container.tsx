@@ -10,11 +10,11 @@ export interface QuizContainerProps {
 
 export function QuizContainer(props: QuizContainerProps) {
   const query = useQuery(['quiz'], getQuiz, { suspense: true });
-  const { quizItems, hydrate, setAnswer } = useQuizStore();
+  const { quizItems, setQuizItems, setAnswer } = useQuizStore();
 
   useEffect(() => {
-    hydrate(query.data ?? []);
-  }, [hydrate, query.data]);
+    setQuizItems(query.data ?? []);
+  }, [setQuizItems, query.data]);
 
   return <Quiz {...props} quizItems={quizItems} onAnswer={setAnswer} />;
 }
