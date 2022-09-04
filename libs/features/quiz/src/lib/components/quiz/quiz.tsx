@@ -25,12 +25,14 @@ export function Quiz(props: QuizProps) {
 
   return (
     <div className={className}>
-      <QuizForm
-        isLast={isLast}
-        data={quizItems[nextStepIndex]}
-        onAnswer={onAnswer}
-        onNext={onNext}
-      />
+      {quizItems.length !== 0 ? (
+        <QuizForm
+          isLast={isLast}
+          data={quizItems[nextStepIndex]}
+          onAnswer={onAnswer}
+          onNext={onNext}
+        />
+      ) : null}
     </div>
   );
 }
