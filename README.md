@@ -86,6 +86,11 @@ npm run dev
 
 ## Testing
 
+### Store Testing
+
+- 퀴즈 스토어 테스트
+  - /lib/features/quiz/src/lib/stores/use-quiz-store.spec.ts
+
 ### Interaction Testing
 
 ## Deployment
