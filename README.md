@@ -98,6 +98,7 @@ npm run features-quiz:storybook
 ```
 
 - http://localhost:4400/?path=/story/quiz--primary Addon 패널 영역해서 확인하실 수 있습니다.
+<img width="300" alt="Screen Shot 2022-09-07 at 9 12 44 PM" src="https://user-images.githubusercontent.com/1489321/188875868-973d7fea-fee0-45cc-91f4-593429b27003.png">
 
 ## Deployment
 
