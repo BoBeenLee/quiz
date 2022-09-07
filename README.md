@@ -17,12 +17,12 @@
 
 - ⚡️ Next.js 12
 - ⚛️ React 18
-- ✨ TypeScript
+- ✨ Material UI
+- 👀 TypeScript
 - 📚 Storybook - Build component driven UIs faster
 - 🏗 Nx.dev - Smart, Fast and Extensible Build System
 - 🃏 Jest — Configured for unit testing
 - 📈 Absolute Import and Path Alias — Import components using @quiz/ prefix (rename prefix)
-- 👀 Default Open Graph — Awesome open graph generated using og
 - 📏 ESLint — Find and fix problems in your code, also will auto sort your imports
 - 💖 Prettier — Format your code consistently
 - 👷 Github Actions — Lint, Test your code on Master Branch, Automatic Storybook Deployment
