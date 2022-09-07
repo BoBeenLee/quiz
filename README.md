@@ -1,17 +1,22 @@
 <div align="center">
-<h1>🏛 quiz</h1>
+<h1>Quiz</h1>
 
-<p>quiz</p>
+<p>Simple Quiz App</p>
 
 ![lastUpdated](https://img.shields.io/github/last-commit/BoBeenLee/quiz/develop)
 
 </div>
 
+#### Vercel: https://quiz-bobeenlee.vercel.app/
+
+#### Storybook: https://bobeenlee.github.io/quiz/features-quiz/
+
+<br/>
+
 ## ✨ Features
 
 - ⚡️ Next.js 12
 - ⚛️ React 18
-- 📱 React Native
 - ✨ TypeScript
 - 📚 Storybook - Build component driven UIs faster
 - 🏗 Nx.dev - Smart, Fast and Extensible Build System
@@ -21,6 +26,7 @@
 - 📏 ESLint — Find and fix problems in your code, also will auto sort your imports
 - 💖 Prettier — Format your code consistently
 - 👷 Github Actions — Lint, Test your code on Master Branch, Automatic Storybook Deployment
+- 📗 State Management - Zustand
 
 ## 📂 Directory structure
 
@@ -98,4 +104,6 @@ npm run dev
 ## Deployment
 
 - Vercel: https://quiz-bobeenlee.vercel.app/
+  - Vercel Dashboard develop브랜치 기준 자동 배포
 - Storybook: https://bobeenlee.github.io/quiz/features-quiz/
+  - Github Action 배포 스크립트를 통한 gh-pages 배포
