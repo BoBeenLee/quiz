@@ -79,17 +79,6 @@ npm run dev
 
 - This starter is using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), it is mandatory to use it to commit changes.
 
-## Global Types Definition Setup
-
-- tsconfig.lib.json, tsconfig.app.json files 코드를 아래와 같이 추가합니다.
-  - ex) libs/shared/interfaces/tsconfig.libs.json
-
-```
-"files": [
-    "../../../types/global.d.ts", <-- depth에 따라 경로 위치는 다를 수 있음
-],
-```
-
 ## Testing
 
 ### Store Testing
@@ -100,6 +89,15 @@ npm run dev
   - /lib/features/quiz/src/lib/utils/datetime/datetime.spec
 
 ### Interaction Testing
+
+- 퀴즈 문제 작성 테스트
+  - 로컬 스토리북 실행 후
+
+```
+npm run features-quiz:storybook
+```
+
+- http://localhost:4400/?path=/story/quiz--primary Addon 패널 영역해서 확인하실 수 있습니다.
 
 ## Deployment
 
