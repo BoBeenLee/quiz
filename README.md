@@ -89,7 +89,9 @@ npm run dev
 ### Store Testing
 
 - 퀴즈 스토어 테스트
-  - /lib/features/quiz/src/lib/stores/use-quiz-store.spec.ts
+  - /lib/features/quiz/src/lib/stores/use-quiz-store/use-quiz-store.spec
+- 유틸 테스트
+  - /lib/features/quiz/src/lib/utils/datetime/datetime.spec
 
 ### Interaction Testing
 
